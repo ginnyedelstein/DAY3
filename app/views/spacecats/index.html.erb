@@ -1,0 +1,31 @@
+<h1>Listing spacecats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Personality</th>
+      <th>Planets visited</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spacecats.each do |spacecat| %>
+      <tr>
+        <td><%= spacecat.name %></td>
+        <td><%= spacecat.personality %></td>
+        <td><%= spacecat.planets_visited %></td>
+        <td><%= link_to 'Show', spacecat %></td>
+        <td><%= link_to 'Edit', edit_spacecat_path(spacecat) %></td>
+        <td><%= link_to 'Destroy', spacecat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spacecat', new_spacecat_path %>
